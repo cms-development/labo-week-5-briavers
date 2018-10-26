@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <h2>All Articles</h2>
+    </div>
+
+
+    <div class="row" *ngIf="articles">
+      <div class="col-sm-12 col-md-6 col-lg-4 menu-card mt-4" *ngFor="let article of articles.data">
+        <div class="card">
+          <img class="card-img-top" src="http://lorempixel.com/g/200/300/" alt=" Card image cap" style='width:100%; max-height: 200px; overflow: hidden;'>
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ article.attributes.title }}
+            </h5>
+            <p class="card-text">
+              {{ article.attributes.body.value |slice:0:150 }}
+            </p>
+          </div>
+          <div class="card-body">
+            <a href="http://localhost:4200/article/{{article.id}}" class="card-link">detail</a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div *ngIf="!articles">
+        <h1> there was a huge error</h1>
+        <em>or just no articles yet, you can try to log out and login again</em>
+      </div>
+    </div>
+  </div>
+</div>
+
