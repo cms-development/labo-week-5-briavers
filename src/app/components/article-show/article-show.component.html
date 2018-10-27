@@ -2,7 +2,7 @@
   <div class="row" *ngIf="article">
     <div class="col-12">
 <h1>The Title: {{article.data.attributes.title}} </h1>
-<h3>created: {{ date}}</h3>
+<h3>created: {{ date }}</h3>
     </div>
     <div class="col-sm-12 col-md-9 col-lg-6">
 <p [innerHTML]='article.data.attributes.body.value'></p>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +17,40 @@ export class HttpCallService {
   getArticle(id) {
     return this.http.get(`${this.baseUrl}/node/article/${id}/?include=field_image`)
   }
+  login(name, password) {
+    console.log(name)
+    console.log(password)
+    let data = {
+      "grant_type":'password',
+      "client_id":'dca795dc-cfdf-4f3b-8d8e-98dfe2ceebbd',
+      "client_secret":'secret',
+      "username": name,
+      'password': password
+
+    }
+    const myFormData = this.getFormData(data);
+
+    return this.http.post('http://localhost:8080/oauth/token', myFormData )
+    
+  }
+  getFormData(object) {
+    const formData = new FormData();
+    Object.keys(object).forEach(key => formData.append(key, object[key]));
+    return formData;
+  }
+  
+  deleteArticle(id){
+    const token = localStorage.getItem("token")
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+
+    console.log('delting', id);
+    return this.http.delete(`${this.baseUrl}/node/article/${id}`,httpOptions)
+  }
+
 }

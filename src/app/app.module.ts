@@ -7,17 +7,28 @@ import { HomeComponent } from './components/home/home.component';
 import { ArticleShowComponent } from './components/article-show/article-show.component';
 import { HttpCallService } from './services/http-call.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BackOfficeComponent } from './components/back-office/back-office.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ArticleShowComponent
+    ArticleShowComponent,
+    LoginComponent,
+    BackOfficeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [HttpCallService],
   bootstrap: [AppComponent]
