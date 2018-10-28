@@ -48,7 +48,7 @@ export class BackOfficeComponent implements OnInit {
     )
   }
   edit(id){
-    console.log(id)
+    this.router.navigateByUrl(`/edit/${id}`)
   }
 
 }

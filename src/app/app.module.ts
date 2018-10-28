@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackOfficeComponent } from './components/back-office/back-office.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { EditComponent } from './components/edit/edit.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ArticleShowComponent,
     LoginComponent,
     BackOfficeComponent,
-    NavbarComponent
+    NavbarComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

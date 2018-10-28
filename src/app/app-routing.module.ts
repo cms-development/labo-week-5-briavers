@@ -5,6 +5,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { ArticleShowComponent } from "./components/article-show/article-show.component";
 import { LoginComponent } from './components/login/login.component';
 import { BackOfficeComponent } from './components/back-office/back-office.component';
+import { EditComponent } from './components/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'backOffice',
     component: BackOfficeComponent,
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
   },
 
 ];
