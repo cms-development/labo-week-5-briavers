@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class EditComponent implements OnInit {
   public editForm: FormGroup;
+  
   public article;
   public date;
   public error;
@@ -29,6 +30,10 @@ export class EditComponent implements OnInit {
     
     this.getArticle(this.id);
     
+    this.editForm = this.formBuilder.group({
+      body: ['', Validators.required],
+      title: ['', Validators.required],
+    });
   }
 
   getArticle(id) {
@@ -42,11 +47,14 @@ export class EditComponent implements OnInit {
 
 
 
+        this.editForm.controls['title'].setValue(this.article.data.attributes.title);
+        this.editForm.controls['body'].setValue(this.article.data.attributes.body.value);
+     /*  
         this.editForm = this.formBuilder.group({
           body: [`${this.article.data.attributes.body.value}`, Validators.required],
-          newTitle: [`${this.article.data.attributes.newTitle}`, Validators.required],
+          title: [`${this.article.data.attributes.title}`, Validators.required],
         });
-
+*/
 
       },
       err => console.log(err),
@@ -58,7 +66,10 @@ export class EditComponent implements OnInit {
 
 
   onSubmit() {
-    this.httpCall.edit(this.f.newTitle.value, this.f.body.value, this.token, this.id).subscribe(
+    console.log("the component")
+    console.log(this.f.title.value)
+    console.log(this.f.body.value)
+    this.httpCall.edit(this.f.title.value, this.f.body.value, this.token, this.id).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
 
