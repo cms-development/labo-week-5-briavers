@@ -2,8 +2,7 @@
 
 
 LINK TO THE VIDEO 
-https://vimeo.com/user63963674/review/297668588/7e83b8ae10
-
+https://vimeo.com/297668588
 
 
 
